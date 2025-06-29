@@ -1,6 +1,6 @@
 {
   "name": "strapi-supabase-file-upload",
-  "version": "1.0.0-beta.1",
+  "version": "1.0.0-beta.5",
   "description": "Supabase upload provider for Strapi v5",
   "type": "module",
   "main": "dist/index.js",
@@ -11,11 +11,9 @@
     "LICENSE"
   ],
   "scripts": {
-    "build": "tsc",
-    "prepare": "npm run build",
+    "build": "npm run clean && npx tsc",
     "dev": "tsc --watch",
     "clean": "rm -rf dist coverage",
-    "prebuild": "npm run clean",
     "test": "vitest run",
     "test:watch": "vitest watch",
     "test:coverage": "vitest run --coverage",

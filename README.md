@@ -1,6 +1,6 @@
 # Strapi Supabase file upload
 
-[![npm version](https://badge.fury.io/js/strapi-supabase-file-upload.svg)](https://badge.fury.io/js/strapi-supabase-file-upload)
+[![npm version](https://img.shields.io/npm/v/strapi-supabase-file-upload.svg)](https://www.npmjs.com/package/strapi-supabase-file-upload)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue.svg)](https://www.typescriptlang.org/)
 

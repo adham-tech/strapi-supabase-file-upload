@@ -1,23 +1,24 @@
 {
-  "extends": "@strapi/typescript-utils/tsconfigs/server",
   "compilerOptions": {
-    "outDir": "dist",
-    "rootDir": ".",
     "target": "ES2020",
     "module": "NodeNext",
     "moduleResolution": "NodeNext",
     "lib": [
       "ES2020"
     ],
-    "types": [
-      "node"
-    ],
+    "outDir": "dist",
+    "rootDir": ".",
     "declaration": true,
     "declarationMap": true,
     "sourceMap": true,
-    "removeComments": false,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "types": [
+      "node"
+    ]
   },
   "include": [
     "index.ts",
