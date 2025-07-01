@@ -29,7 +29,12 @@ export function init(providerOptions: SupabaseProviderOptions): UploadProvider {
         /\.[^/.]+$/,
         ''
       );
-      const fileDirectory = `${directory}${fileNameWithoutExt}/`;
+      // Remove size prefixes to get the base filename
+      const baseName = fileNameWithoutExt.replace(
+        /^(thumbnail_|large_|medium_|small_)/,
+        ''
+      );
+      const fileDirectory = `${directory}${baseName}/`;
       const filePath = `${fileDirectory}${fileName}`;
 
       let fileContent = file.buffer;
@@ -73,5 +78,4 @@ export function init(providerOptions: SupabaseProviderOptions): UploadProvider {
   };
 }
 
-// For backward compatibility with CommonJS
 export default { init };

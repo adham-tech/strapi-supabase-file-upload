@@ -1,12 +1,12 @@
 # Strapi Supabase file upload
 
-[![npm version](https://img.shields.io/npm/v/strapi-supabase-file-upload.svg)](https://www.npmjs.com/package/strapi-supabase-file-upload)
+[![npm package version](https://img.shields.io/npm/v/strapi-supabase-file-upload.svg)](https://www.npmjs.com/package/strapi-supabase-file-upload)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue.svg)](https://www.typescriptlang.org/)
 
 _This was created with intent to be for private use, but I thought someone else might find it useful_
 
-**A TypeScript-based [Supabase](https://supabase.com/) Storage upload provider for Strapi 5 CMS.**
+**A TypeScript-based [Supabase](https://supabase.com/) Storage upload provider for [Strapi 5 CMS](https://strapi.io/).**
 
 ## Features
 
@@ -45,7 +45,7 @@ export default ({ env }) => ({
 
 ## Environment Variables
 
-| Variable             | Description                 | Default  |
+| Variable             | Description                 | type     |
 | -------------------- | --------------------------- | -------- |
 | `SUPABASE_URL`       | Your Supabase project URL   | Required |
 | `SUPABASE_ANON_KEY`  | Your Supabase anonymous key | Required |
