@@ -3,6 +3,7 @@ name: Publish Package to GitHub Packages
 on:
   release:
     types: [created]
+  workflow_dispatch:
 
 jobs:
   build:
@@ -19,6 +20,11 @@ jobs:
           scope: '@adham-tech'
 
       - run: npm install
+      - name: Modify package.json for GitHub Packages
+        run: |
+          # Create a temporary package.json with scoped name for GitHub Packages
+          jq '.name = "@adham-tech/strapi-supabase-file-upload" | .publishConfig.registry = "https://npm.pkg.github.com"' package.json > package-github.json
+          mv package-github.json package.json
       - run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
