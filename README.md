@@ -57,7 +57,7 @@ export default ({ env }) => ({
 ### Basic Setup
 
 1. You need your Supabase credentials
-2. Create a storage bucket in Supabase
+2. Create a storage bucket in Supabase, the bucket needs to be public.
 3. Configure the provider as shown above
 4. Upload files through Strapi's media library
 
