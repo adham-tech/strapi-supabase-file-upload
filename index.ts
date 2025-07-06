@@ -29,7 +29,7 @@ export function init(providerOptions: SupabaseProviderOptions): UploadProvider {
         /\.[^/.]+$/,
         ''
       );
-      // Remove size prefixes to get the base filename
+
       const baseName = fileNameWithoutExt.replace(
         /^(thumbnail_|large_|medium_|small_)/,
         ''
@@ -54,11 +54,8 @@ export function init(providerOptions: SupabaseProviderOptions): UploadProvider {
         });
 
       if (error) throw error;
-      const { data: urlData } = supabase.storage
-        .from(bucket)
-        .getPublicUrl(filePath);
 
-      file.url = urlData.publicUrl;
+      file.url = `${providerOptions.apiUrl}/storage/v1/object/public/${bucket}/${filePath}`;
     },
 
     async uploadStream(file: StrapiFile): Promise<void> {
@@ -66,9 +63,11 @@ export function init(providerOptions: SupabaseProviderOptions): UploadProvider {
     },
 
     async delete(file: StrapiFileForDelete): Promise<void> {
-      const filePath = file.url.split(`/${bucket}/`)[1];
+      const urlParts = file.url.split(`/storage/v1/object/public/${bucket}/`);
+      const filePath = urlParts[1];
+
       if (!filePath) {
-        throw new Error('Invalid file URL');
+        throw new Error('Invalid file URL - cannot extract file path');
       }
 
       const { error } = await supabase.storage.from(bucket).remove([filePath]);

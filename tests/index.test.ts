@@ -103,7 +103,9 @@ describe('Supabase Upload Provider', () => {
 
       await uploadProvider.upload(file);
 
-      expect(file.url).toBe('https://example.com/bucket/test/test.jpg');
+      expect(file.url).toBe(
+        'https://example.supabase.co/storage/v1/object/public/test-bucket/uploads/test/test.jpg'
+      );
     });
 
     it('should upload a file with stream', async () => {
@@ -111,7 +113,9 @@ describe('Supabase Upload Provider', () => {
 
       await uploadProvider.upload(file);
 
-      expect(file.url).toBe('https://example.com/bucket/test/test.jpg');
+      expect(file.url).toBe(
+        'https://example.supabase.co/storage/v1/object/public/test-bucket/uploads/test/test.jpg'
+      );
     });
 
     it('should throw error when no content is provided', async () => {
@@ -135,7 +139,9 @@ describe('Supabase Upload Provider', () => {
 
       await uploadProvider.upload(file);
 
-      expect(file.url).toBe('https://example.com/bucket/test/test.jpg');
+      expect(file.url).toBe(
+        'https://example.supabase.co/storage/v1/object/public/test-bucket/uploads/test-hash/test-hash.jpg'
+      );
     });
 
     it('should handle file with extension in name', async () => {
@@ -145,7 +151,9 @@ describe('Supabase Upload Provider', () => {
 
       await uploadProvider.upload(file);
 
-      expect(file.url).toBe('https://example.com/bucket/test/test.jpg');
+      expect(file.url).toBe(
+        'https://example.supabase.co/storage/v1/object/public/test-bucket/uploads/test/test.jpg'
+      );
     });
 
     it('should handle upload errors from Supabase', async () => {
@@ -195,7 +203,7 @@ describe('Supabase Upload Provider', () => {
 
     it('should delete a file', async () => {
       const file = createMockFileForDelete(
-        'https://example.com/test-bucket/test/test.jpg'
+        'https://example.supabase.co/storage/v1/object/public/test-bucket/uploads/test/test.jpg'
       );
 
       await uploadProvider.delete(file);
@@ -219,7 +227,7 @@ describe('Supabase Upload Provider', () => {
       });
 
       const file = createMockFileForDelete(
-        'https://example.com/test-bucket/test/test.jpg'
+        'https://example.supabase.co/storage/v1/object/public/test-bucket/uploads/test/test.jpg'
       );
 
       await expect(uploadProvider.delete(file)).rejects.toThrow(
